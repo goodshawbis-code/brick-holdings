@@ -4,3 +4,644 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hatch Labs | AI Solutions &amp; Application Development</title>
+  <meta name="description" content="AI solutions company building custom applications, automation systems, and AI agents. Hatch Labs designs, develops, and deploys AI-powered software.">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta name="keywords" content="AI solutions, AI application development, AI agents, custom software, SaaS, mobile apps, automation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2300d4ff'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%230a0a1a'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='url(%23g)' font-weight='bold'>H</text></svg>" type="image/svg+xml">
+
+  <style>
+    /* === TOKEN SYSTEM === */
+    :root {
+      --color-bg: #0a0a1a;
+      --color-bg-surface: #111125;
+      --color-bg-elevated: #1a1a30;
+      --color-bg-glass: rgba(26,26,48,0.6);
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-hover: rgba(255,255,255,0.16);
+      --color-text-primary: #f8f8ff;
+      --color-text-secondary: rgba(248,248,255,0.7);
+      --color-text-muted: rgba(248,248,255,0.4);
+      --color-accent-cyan: #00d4ff;
+      --color-accent-purple: #7c3aed;
+      --color-accent-pink: #ec4899;
+      --color-accent-gold: #f5a023;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+      --gradient-hot: linear-gradient(135deg, #ec4899 0%, #f5a023 100%);
+      --gradient-emerald: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+      --font-primary: 'Space Grotesk', sans-serif;
+      --font-secondary: 'Inter', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --shadow-glow-cyan: 0 0 30px rgba(0,212,255,0.2);
+      --shadow-glow-purple: 0 0 30px rgba(124,58,237,0.2);
+      --transition-fast: 0.15s ease;
+      --transition-base: 0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      family: var(--font-primary);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* === NAVIGATION === */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10,10,26,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 1rem 1.5rem; }
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo {
+      width: 36px; height: 36px;
+      background: var(--gradient-primary);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem; color: white;
+    }
+    .nav-title { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      font-size: 0.9rrem;
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-cta {
+      padding: 0.5rem 1.25rem;
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 60px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+      text-decoration: none;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 15rem 4rem;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    @media (max-width: 768px) { .hero { padding: 8rem 1.5rem 4rem; } }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,212,255,0.08) 0px, rgba(124,58,237,0.05) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; max-width: 800px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.25);
+      border-radius: 60px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-accent-cyan);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot { width: 6px; height: 6px; background: var(--color-accent-cyan); border-radius: 50%; }
+    h1.hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .gradient-text {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.8rem 2.5rem;
+      background: var(--gradient-primary);
+      border: none; border-radius: 60px;
+      color: white; font-weight: 600; font-size: 1rem;
+      cursor: pointer; text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: var(--shadow-glow-cyan);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      padding: 0.8rem 2.5rem;
+      background: transparent;
+      border: 1px solid var(--color-border-hover);
+      border-radius: 60px;
+      color: var(--color-text-primary);
+      font-weight: 600; font-size: 1rem;
+      cursor: pointer; text-decoration: none;
+      transition: border-color var(--transition-fast);
+    }
+    .btn-secondary:hover { border-color: var(--color-accent-cyan); }
+
+    /* === SECTION LAYOUT === */
+    .section { padding: 6rem 15rem; }
+    @media (max-width: 768px) { .section { padding: 4rem 1.5rem; } }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent-cyan);
+      margin-bottom: 0.75rem;
+    }
+    h2.section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub {
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* === STATS === */
+    .stats-bar {
+      background: var(--color-bg-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 2rem 15rem;
+      display: flex;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) { .stats-bar { padding: 2rem 1.5rem; flex-wrap: wrap; } }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* === APP GRID === */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .app-card {
+      background: var(--color-bg-glass);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: border-color var(--transition-base), transform var(--transition-base);
+      cursor: pointer;
+      decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .app-card:hover {
+      border-color: rgba(0,212,255,0.3);
+      transform: translateY(-4px);
+    }
+    .app-card-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .app-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .app-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .app-info { }
+    .app-name { font-weight: 700; font-size: 1.15rem; margin-bottom: 0.25rem; }
+    .app-category {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .app-desc { font-size: 0.9em; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.25rem; }
+    .app-footer { display: flex; align-items: center; justify-content: space-between; }
+    .app-status {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 60px;
+    }
+    .app-status.live {
+      background: rgba(16,205,129,0.12);
+      color: #10b981;
+      border: 1px solid rgba(16,205,129,0.25);
+    }
+    .app-status.beta {
+      background: rgba(245,160,35,0.12);
+      color: var(--color-accent-gold);
+      border: 1px solid rgba(245,160,35,0.25);
+    }
+    .app-status.dev {
+      background: rgba(0,212,255,0.1);
+      color: var(--color-accent-cyan);
+      border: 1px solid rgba(0,212,255,0.25);
+    }
+    .app-arrow { font-size: 1.2rem; color: var(--color-text-muted); transition: transform var(--transition-fast); }
+    .app-card:hover .app-arrow { transform: translateX(4px); }
+
+    /* === SERVICES === */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(0,212,255,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .service-desc { color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+
+    /* === CONTACT SERDION === */
+    .contact-section {
+      background: var(--color-bg-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .contact-info p { color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1.5rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      background: rgba(0,212,255,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+    .contact-form {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-secondary);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      font-family: var(--font-secondary);
+      font-size: 0.9rrem;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--color-accent-cyan); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--gradient-primary);
+      border: none; border-radius: var(--radius-md);
+      color: white; font-weight: 600; font-size: 1rem;
+      cursor: pointer;
+      transition: opacity var(--transition-fast);
+    }
+    .form-submit:hover { opacity: 0.85; }
+
+    /* === FOOTER === */
+    .footer {
+      padding: 3rem 15rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--color-border);
+      flex-wrap: wrap; gap: 1rem;
+    }
+    @media (max-width: 768px) { .footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; } }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-logo {
+      width: 32px; height: 32px;
+      background: var(--gradient-primary);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; color: white;
+    }
+    .footer-text { font-size: 0.85rem; color: var(--color-text-muted); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color var(--transition-fast);
+    }
+    .footer-links a:hover { color: var(--color-text-primary); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-brand">
+      <div class="nav-logo">H</div>
+      <span class="nav-title">Hatch Labs</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Let's Build</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AI Solutions & Application Development
+      </div>
+      <h1 class="hero-title">
+        We Build the <span class="gradient-text">Future</span><br>
+        of Intelligent Software
+      </h1>
+      <p class="hero-sub">Hatch Labs designs, develops, and deploys AI-powered applications, automation systems, and intelligent agents that transform how businesses operate.</p>
+      <div class="hero-actions">
+        <a href="#apps" class="btn-primary">Explore Our Apps</a>
+        <a href="#contact" class="btn-secondary">Work With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number gradient-text">5+</div>
+      <div class="stat-label">Apps In Development</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number gradient-text">AI First</div>
+      <div class="stat-label">Design Philosophy</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number gradient-text">2025</div>
+      <div class="stat-label">Founded</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number gradient-text">#1</div>
+      <div class="stat-label">Oregon AI Startup</div>
+    </div>
+  </div>
+
+  <section id="apps" class="section">
+    <div class="section-header">
+      <div class="section-label">OUR POIRFLOLO</div>
+      <h2 class="section-title">Apps We're Building</h2>
+      <p class="section-sub">Each app targets a specific vertical with AI-first thinking, native mobile experiences, and real-world utility.</p>
+    </div>
+    <div class="apps-grid">
+
+      <a href="https://apps.apple.com/us/app/pro-tour-ai-cycling-coach/id6749113436" target="_blank" rel="noopener" class="app-card">
+        <div class="app-card-header">
+          <div class="app-icon"><img src="https://raw.githubusercontent.com/goodshawbis-code/brick-holdings/main/assets/protour_icon.png" alt="Pro Tour AI Coach Icon"></div>
+          <div class="app-info">
+            <div class="app-name">Pro Tour AI Cycling Coach</div>
+            <div class="app-category">Fitness & AI Coaching</div>
+          </div>
+        </div>
+        <p class="app-desc">Personalized AI cycling coach with 4DP power metrics, Tour de France routes, and expert training plans.</p>
+        <div class="app-footer">
+          <span class="app-status live"><?svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg> Live on App Store</span>
+          <span class="app-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="https://apps.apple.com/us/app/plamb-leveled-and-square/id6749736996" target="_blank" rel="noopener" class="app-card">
+        <div class="app-card-header">
+          <div class="app-icon"><img src="https://raw.githubusercontent.com/goodshawbis-code/brick-holdings/main/assets/pls_icon.png" alt="Plumb Leveled &amp; Square Icon"></div>
+          <div class="app-info">
+            <div class="app-name">Plumb Leveled &amp; Square</div>
+            <div class="app-category">Construction Tools</div>
+          </div>
+        </div>
+        <p class="app-desc">A professional masonry toolkit with AI-powered leveling, square checks, and installation estimator.</p>
+        <div class="app-footer">
+          <span class="app-status live"><?svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg> Live on App Store</span>
+          <span class="app-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="https://slambox.com" target="_blank" rel="noopener" class="app-card">
+        <div class="app-card-header">
+          <div class="app-icon"><img src="https://raw.githubusercontent.com/goodshawbis-code/brick-holdings/main/assets/slambox_icon.png" alt="SLaM@�X Icon"></div>
+          <div class="app-info">
+            <div class="app-name">SLaMBoX</div>
+            <div class="app-category">Music & Entertainment</div>
+          </div>
+        </div>
+        <p class="app-desc">AI-powered music studio toolkit for beatmakers. Automate your flow with intelligent genre analysis and sound design.</p>
+        <div class="app-footer">
+          <span class="app-status beta"><?svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg> Beta</span>
+          <span class="app-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="#" class="app-card">
+        <div class="app-card-header">
+          <div class="app-icon"><img src="https://raw.githubusercontent.com/goodshawbis-code/brick-holdings/main/assets/legaleze_icon.png" alt="Legaleze AI Icon"></div>
+          <div class="app-info">
+            <div class="app-name">Legaleze AI</div>
+            <div class="app-category">Legal Tech</div>
+          </div>
+        </div>
+        <p class="app-desc">AI-powered jurisprudence and contract synthesis for modern businesses. Simplify legal documents with AI.</p>
+        <div class="app-footer">
+          <span class="app-status dev"><?svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg> In Development</span>
+          <span class="app-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="#" class="app-card">
+        <div class="app-card-header">
+          <div class="app-icon"><img src="https://raw.githubusercontent.com/goodshawbis-code/brick-holdings/main/assets/artistexp_icon.png" alt="The Artist Experience Icon"></div>
+          <div class="app-info">
+            <div class="app-name">The Artist Experience</div>
+            <div class="app-category">Music & Culture</div>
+          </div>
+        </div>
+        <p class="app-desc">Immersive music experiences and artist legacy archives. AI-curated deep dives into music history.</p>
+        <div class="app-footer">
+          <span class="app-status dev"><?svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="currentColor"/></svg> In Development</span>
+          <span class="app-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="services" class="section" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="section-header">
+      <div class="section-label">WHAT WE DO</div>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">From idea to App Store & beyond - we handle the full stack of modern app development.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🦸</div>
+        <h3 class="service-title">AI Integration</h3>
+        <p class="service-desc">Embed intelligent AI agents and models directly into your product. From chatbots to complex decision systems we make it work.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📺</div>
+        <h3 class="service-title">API Design & Integration</h3>
+        <p class="service-desc">REST, GraphQL, Websockets - we design and build robust APIs that scale. Third-party integrations made simple.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔎</div>
+        <h3 class="service-title">Mobile App Development</h3>
+        <p class="service-desc">Native iOS and cross-platform apps built with SwiftUI and React Native. App Store ready.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛂</div>
+        <h3 class="service-title">Cloud Infrastructure</h3>
+        <p class="service-desc">Scalable deployments on AWS, GCP, and Render. CI/CD pipelines, monitoring, and secured API layers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-header">
+      <div class="section-label">OUR STORY</div>
+      <h2 class="section-title">Built in Oregon</h2>
+      <p class="section-sub">Hacth Labs is an Oregon-based AI tech company built by Anthony Hatchett. We believe premium AI-powered applications should be crafted with as much attention to design as to function.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div class="section-header">
+      <div class="section-label">GET IN TOUCH</div>
+      <h2 class="section-title">Let's Build Together</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>HatCH LabY</h3>
+        <p>Ready to build your next app or integrate AI into your business? Let's talk.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">🍉</div>
+            <span>Anthony@brickoutdoorlivinginc.com</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎿</div>
+            <span>(503) 809-4478</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💯¼</div>
+            <span>Beaverton, Oregon</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input txpe="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="button" class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="footer-logo">H</div>
+      <span class="footer-text">&copy; 2025 Hatch Labs | A Division of Brick Outdoor Living Inc.</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
