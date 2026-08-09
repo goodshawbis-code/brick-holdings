@@ -1,0 +1,24 @@
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    - cron: '0 12 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase DB
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://nrcqxlykumsslambkqno.supabase.co/rest/v1/" \
+            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yY3F4bHlrdW1zc2xhbWJrcW5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTY3NTcsImV4cCI6MjA5NDg3Mjc1N30.sMD7uYKT645-hMKA6hDFNwRwLn4BYD8whhfeMCVsvl4" \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yY3F4bHlrdW1zc2xhbWJrcW5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTY3NTcsImV4cCI6MjA5NDg3Mjc1N30.sMD7uYKT645-hMKA6hDFNwRwLn4BYD8whhfeMCVsvl4")
+          echo "HTTP Status: $STATUS"
+          if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 500 ]; then
+            echo "Supabase is alive"
+          else
+            echo "Unexpected status: $STATUS"
+            exit 1
+          fi
