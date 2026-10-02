@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Artist Experience</title>
+  <meta name="description" content="Less algorithm. More connection. A platform built for independent artists to own their music, connect directly with fans, and build their legacy." />
+  <meta property="og:title" content="The Artist Experience" />
+  <meta property="og:description" content="Less algorithm. More connection." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080810;
+      --surface: #10101c;
+      --border: rgba(124, 58, 237, 0.18);
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --green: #00ff88;
+      --green-dim: rgba(0, 255, 136, 0.12);
+      --text: #f0eeff;
+      --muted: rgba(240, 238, 255, 0.5);
+      --pill-bg: rgba(124, 58, 237, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 8, 16, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--purple-light);
+    }
+
+    .coming-soon-badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-dim);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 72px 24px 64px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--purple-light);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 9vw, 64px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 30%, var(--purple-light) 70%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-appstore {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(240, 238, 255, 0.06);
+      border: 1px solid rgba(240, 238, 255, 0.15);
+      border-radius: 14px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: default;
+      opacity: 0.65;
+    }
+
+    .btn-appstore svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--muted);
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 auto;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 64px 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 560px) {
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(124, 58, 237, 0.4);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--pill-bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* TAGLINE BLOCK */
+    .tagline-block {
+      padding: 64px 24px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .tagline-block h2 {
+      font-size: clamp(24px, 6vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .tagline-block h2 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .tagline-block p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* NOTIFY */
+    .notify {
+      padding: 40px 24px 80px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .notify p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .notify-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .notify-form input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .notify-form input::placeholder { color: var(--muted); }
+
+    .notify-form input:focus {
+      border-color: var(--purple);
+    }
+
+    .notify-form button {
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .notify-form button:hover { background: #6d28d9; }
+    .notify-form button:active { transform: scale(0.98); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    footer a {
+      font-size: 13px;
+      color: var(--purple-light);
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    footer a:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">The Artist<span> Experience</span></a>
+    <span class="coming-soon-badge">Coming Soon</span>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-eyebrow">Made for iPhone</div>
+      <h1>Less algorithm.<br>More connection.</h1>
+      <p>A platform built for independent artists to own their music, connect directly with fans, and build a legacy — without chasing an algorithm.</p>
+      <div class="cta-group">
+        <div class="btn-appstore">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </div>
+        <span class="cta-note">App Store availability pending approval &mdash; be the first to know</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="features">
+      <p class="section-label">Built for artists, by artists</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3>Direct Fan Connection</h3>
+          <p>Reach your fans without a feed getting in the way. Your voice, your message, delivered directly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>Own Your Music</h3>
+          <p>Your catalog, your rights, your rules. Publish, manage, and monetize on your terms.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Readiness Gate</h3>
+          <p>Know exactly when you're ready to release. Smart tools that track your momentum before you drop.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Build Your Community</h3>
+          <p>A dedicated space for your most loyal supporters. No distractions, no noise — just your people.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="tagline-block">
+      <h2>Your career.<br>Your <em>rules</em>.</h2>
+      <p>The Artist Experience was built for the independent artist who is done waiting for permission. Take control of your music, your brand, and your future.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="notify">
+      <p>Be first in line when we launch. Drop your email and we'll notify you the moment it's live on the App Store.</p>
+      <form class="notify-form" onsubmit="handleNotify(event)">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Notify Me at Launch</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 The Artist Experience &mdash; An Emet Holdings company</p>
+    <a href="/">Back to Emet Holdings &rarr;</a>
+  </footer>
+
+  <script>
+    function handleNotify(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input');
+      btn.textContent = "You're on the list!";
+      btn.style.background = '#059669';
+      input.disabled = true;
+      btn.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
