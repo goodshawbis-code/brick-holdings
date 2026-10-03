@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brick Outdoor Living | Expert Masonry & Outdoor Construction</title>
+  <meta name="description" content="Brick Outdoor Living — expert brick masonry and outdoor construction in the Portland, Oregon area. Patios, fireplaces, retaining walls, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0d0a;
+      --surface: #1a1610;
+      --surface2: #231f18;
+      --border: rgba(180, 120, 60, 0.18);
+      --amber: #c87533;
+      --amber-light: #e8a060;
+      --text: #f0ece4;
+      --muted: rgba(240, 236, 228, 0.5);
+      --pill: rgba(200, 117, 51, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 13, 10, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--amber), var(--amber-light));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: #0f0d0a;
+      letter-spacing: -0.5px; flex-shrink: 0;
+    }
+
+    .logo-name {
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.2px; color: var(--text);
+      line-height: 1.2;
+    }
+
+    .logo-name span { display: block; font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 1px; }
+
+    .header-cta {
+      font-size: 13px; font-weight: 600;
+      color: var(--amber); text-decoration: none;
+      border: 1px solid rgba(200,117,51,0.4);
+      border-radius: 20px; padding: 7px 16px;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--pill); }
+
+    /* HERO */
+    .hero {
+      padding: 72px 24px 56px;
+      max-width: 620px; margin: 0 auto; text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--amber); background: var(--pill);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 8vw, 52px);
+      font-weight: 900; letter-spacing: -2px; line-height: 1.05;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #fff 20%, var(--amber) 60%, var(--amber-light) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 16px; font-weight: 400; color: var(--muted);
+      line-height: 1.65; max-width: 400px; margin: 0 auto 32px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--amber), var(--amber-light));
+      color: #0f0d0a; font-size: 14px; font-weight: 700;
+      border-radius: 24px; padding: 13px 24px;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text); font-size: 14px; font-weight: 600;
+      border: 1px solid var(--border); border-radius: 24px;
+      padding: 13px 24px; text-decoration: none; transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(200,117,51,0.4); }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 24px;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 56px 20px 64px;
+      max-width: 720px; margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--amber);
+      text-align: center; margin-bottom: 36px; opacity: 0.85;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 480px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+
+    .service-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+    .service-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.1px; }
+    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* CONTACT */
+    .contact {
+      padding: 0 20px 72px;
+      max-width: 560px; margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--surface2);
+      border: 1px solid rgba(200,117,51,0.22);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 28px;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 12px; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 18px; text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: rgba(200,117,51,0.35); }
+
+    .contact-item-icon { font-size: 18px; flex-shrink: 0; }
+
+    .contact-item-text { text-align: left; }
+    .contact-item-label { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .contact-item-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+    /* BACK LINK */
+    .back-link {
+      display: block; text-align: center;
+      padding: 0 0 40px;
+      font-size: 12px; font-weight: 500; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.2px;
+    }
+    .back-link:hover { color: var(--amber); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+    }
+    footer p { font-size: 12px; color: var(--muted); opacity: 0.5; letter-spacing: 0.3px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">
+      <div class="logo-mark">B</div>
+      <span class="logo-name">
+        Brick Outdoor Living
+        <span>Beaverton, OR</span>
+      </span>
+    </a>
+    <a href="tel:+15038094478" class="header-cta">Call Us</a>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-eyebrow">Expert Masonry &amp; Construction</div>
+      <h1>Built to endure.</h1>
+      <p>Brick, stone, and outdoor structures crafted for the Pacific Northwest. We build spaces that last generations.</p>
+      <div class="hero-actions">
+        <a href="tel:+15038094478" class="btn-primary">
+          📞 (503) 809-4478
+        </a>
+        <a href="mailto:Anthony@brickoutdoorlivinginc.com" class="btn-secondary">
+          Get a Quote
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="services">
+      <p class="section-label">What We Build</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <span class="service-icon">🧱</span>
+          <div class="service-name">Brick Masonry</div>
+          <p class="service-desc">Structural and decorative brickwork with precision laying and long-lasting results.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🔥</span>
+          <div class="service-name">Outdoor Fireplaces</div>
+          <p class="service-desc">Custom masonry fireplaces and fire pits designed for year-round Pacific Northwest living.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+          <div class="service-name">Retaining Walls</div>
+          <p class="service-desc">Engineered brick and stone retaining walls built to hold grade and enhance curb appeal.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🌿</span>
+          <div class="service-name">Patios &amp; Walkways</div>
+          <p class="service-desc">Brick-paved outdoor living surfaces built flat, tight, and ready for decades of use.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🏠</span>
+          <div class="service-name">Outdoor Kitchens</div>
+          <p class="service-desc">Full masonry outdoor kitchen structures with counters, grill surrounds, and storage.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🪨</span>
+          <div class="service-name">Stone &amp; Veneer</div>
+          <p class="service-desc">Natural stone and manufactured veneer installation for facades, columns, and accents.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-card">
+        <h2>Ready to build?</h2>
+        <p>Licensed and insured in Oregon. Serving the Portland metro area including Beaverton, Hillsboro, and surrounding communities.</p>
+        <div class="contact-items">
+          <a href="tel:+15038094478" class="contact-item">
+            <span class="contact-item-icon">📞</span>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">(503) 809-4478</div>
+            </div>
+          </a>
+          <a href="mailto:Anthony@brickoutdoorlivinginc.com" class="contact-item">
+            <span class="contact-item-icon">✉️</span>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">Anthony@brickoutdoorlivinginc.com</div>
+            </div>
+          </a>
+          <div class="contact-item">
+            <span class="contact-item-icon">📍</span>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Beaverton, OR 97005</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a href="/" class="back-link">← Emet Holdings Portfolio</a>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Brick Outdoor Living Inc. &mdash; Oregon Corporation</p>
+  </footer>
+
+</body>
+</html>
