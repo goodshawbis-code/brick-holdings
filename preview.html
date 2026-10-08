@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emet Holdings &mdash; Truth in Every Venture</title>
+  <meta name="description" content="Emet Holdings is a holding company building and owning technology ventures across music, cycling, craftsmanship and law.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Noto+Serif+Hebrew:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #0a1019;
+      --panel: #101924;
+      --ivory: #f2eee5;
+      --muted: #adafae;
+      --gold: #c4a978;
+      --rule: rgba(196, 169, 120, .27);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 280px;
+      background: var(--night);
+      color: var(--ivory);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    .shell { width: min(100% - 44px, 1160px); margin-inline: auto; }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .site-header {
+      border-bottom: 1px solid var(--rule);
+      background: var(--night);
+    }
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .wordmark { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; }
+    .wordmark-name { font-size: 12px; font-weight: 600; letter-spacing: .19em; text-transform: uppercase; }
+    .header-link {
+      padding-block: 13px;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .header-link:hover { color: var(--ivory); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-bottom: 1px solid var(--rule);
+      background: radial-gradient(ellipse at 74% 45%, #192839 0%, transparent 49%), var(--night);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .22;
+      background-image: linear-gradient(90deg, transparent calc(50% - .5px), rgba(196, 169, 120, .12) 50%, transparent calc(50% + .5px));
+      pointer-events: none;
+    }
+    .hero-inner {
+      min-height: 625px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: center;
+      padding-block: 66px 76px;
+    }
+    .hero-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 40px; }
+    .hero-logo img { width: min(100%, 440px); height: auto; border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+    @media (min-width: 700px) { .hero-logo { grid-column: 2; grid-row: 1; margin-bottom: 0; } .hero-logo img { width: min(100%, 520px); } }
+    .hero-copy { text-align: center; }
+    .hero-copy .eyebrow { display: block; margin-bottom: 20px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+    h1 { font-size: clamp(54px, 12vw, 94px); letter-spacing: -.045em; line-height: .94; }
+    .hero-subtitle {
+      margin-top: 27px;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(25px, 5.8vw, 37px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.08;
+    }
+    .hero-description {
+      max-width: 410px;
+      margin: 23px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 50px;
+      margin-top: 31px;
+      padding: 0 19px;
+      border: 1px solid var(--gold);
+      text-decoration: none;
+      color: var(--ivory);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+    }
+    .hero-cta:hover { background: var(--gold); color: var(--night); }
+    .hero-cta span { font-size: 17px; font-weight: 400; }
+
+    .portfolio { padding-block: 76px 100px; }
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      padding-bottom: 27px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-intro .eyebrow { display: block; margin-bottom: 14px; }
+    .section-intro h2 { font-size: clamp(39px, 7vw, 60px); line-height: 1; letter-spacing: -.035em; }
+    .section-count { color: var(--gold); font-size: 11px; letter-spacing: .12em; white-space: nowrap; }
+    .portfolio-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 25px; }
+    .venture {
+      --accent: var(--gold);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 302px;
+      padding: 27px;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid rgba(242, 238, 229, .11);
+      color: var(--ivory);
+      text-decoration: none;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+    .venture::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--accent); }
+    .venture:hover { transform: translateY(-3px); border-color: var(--accent); background: #16212d; }
+    .venture:active { transform: translateY(0); }
+    .venture-top { display: flex; justify-content: space-between; align-items: start; gap: 15px; }
+    .venture-icon {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 22%;
+      border: 1px solid rgba(242, 238, 229, .14);
+      background: #1c2532;
+      flex: none;
+    }
+    .venture-number { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .17em; }
+    .venture-content { margin-top: auto; padding-top: 32px; }
+    .venture-category { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .venture h3 { margin-top: 10px; font-size: clamp(29px, 6vw, 37px); line-height: 1.05; }
+    .closing-line {
+      margin-top: 76px;
+      padding-top: 30px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 5vw, 38px);
+      font-style: italic;
+      text-align: center;
+    }
+    .footer { border-top: 1px solid var(--rule); }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      min-height: 90px;
+      padding-block: 24px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .footer-hebrew { color: var(--gold); direction: rtl; font: 400 23px/1 'Noto Serif Hebrew', serif; }
+
+    @media (min-width: 700px) {
+      .shell { width: min(100% - 80px, 1160px); }
+      .hero-inner { min-height: 570px; grid-template-columns: minmax(0, 1fr) minmax(230px, .8fr); align-items: center; gap: 7%; padding-block: 90px; }
+      .hero-copy { text-align: left; }
+      .hero-description { margin-left: 0; }
+      .hero-copy { grid-column: 1; grid-row: 1; }
+      .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .venture { min-height: 335px; padding: 32px; }
+    }
+    @media (max-width: 360px) {
+      .shell { width: calc(100% - 34px); }
+      .wordmark-name { font-size: 10px; letter-spacing: .11em; }
+      .header-link { font-size: 9px; }
+      .venture { padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  
+    .about { padding-block: 84px 20px; }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 34px; }
+    .about h2 { font-size: clamp(36px, 7vw, 56px); line-height: 1.02; letter-spacing: -.035em; margin-top: 14px; }
+    .about p.lead { color: var(--ivory); font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(22px, 4.6vw, 28px); line-height: 1.35; margin-top: 22px; }
+    .about p.body { color: var(--muted); font-size: 14px; line-height: 1.9; margin-top: 18px; max-width: 560px; }
+    .pillars { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 8px; }
+    .pillar { border-top: 1px solid var(--rule); padding-top: 16px; }
+    .pillar b { display: block; color: var(--gold); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 8px; }
+    .pillar span { color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .meaning { margin-top: 30px; padding: 22px 24px; border: 1px solid var(--rule); background: var(--panel); }
+    .meaning .he { font: 500 34px/1 'Noto Serif Hebrew', serif; color: #ddc596; direction: rtl; }
+    .meaning p { color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: 10px; }
+    .venture-content p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .venture-cta { display: inline-block; margin-top: 20px; color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    article.venture { cursor: default; }
+    article.venture:hover { transform: none; background: var(--panel); border-color: rgba(242,238,229,.11); }
+    .venture-icon { width: 96px; height: 96px; border-radius: 22%; }
+    .others { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); }
+    .others .eyebrow { display: block; margin-bottom: 16px; }
+    .others-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .others-list a { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px; border: 1px solid var(--rule); color: var(--ivory); text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; transition: border-color .2s, color .2s; }
+    .others-list a:hover { border-color: var(--gold); color: var(--gold); }
+    .others-note { margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    @media (min-width: 820px) { .about-grid { grid-template-columns: 1.15fr .85fr; gap: 64px; } .pillars { margin-top: 0; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#top" aria-label="Emet Holdings, back to top"><span class="wordmark-name">Emet Holdings</span></a>
+      <a class="header-link" href="#ventures">Our ventures &nbsp;&#8599;</a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero" aria-label="Emet Holdings">
+      <div class="shell hero-inner">
+        <div class="hero-logo"><img src="img/logo.webp" width="480" height="320" alt="Emet Holdings logo, a crest above the word EMET and the Hebrew letters for truth" fetchpriority="high"></div>
+        <div class="hero-copy">
+          <span class="eyebrow">A holding company</span>
+          <h1>Emet<br>Holdings.</h1>
+          <p class="hero-subtitle">Truth in Every Venture</p>
+          <p class="hero-description">We own and build technology ventures across music, performance, craftsmanship and law.</p>
+          <a class="hero-cta" href="#about">What we do <span>&#8600;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="shell about-grid">
+        <div>
+          <span class="eyebrow">About</span>
+          <h2>One holding company. Distinct ventures.</h2>
+          <p class="lead">Emet Holdings owns and operates a focused portfolio of AI-powered applications, each built for a specific community and each with its own identity.</p>
+          <p class="body">We build software that gives people real tools and real ownership: artists who keep control of their music, athletes who train like professionals, contractors who bid and build with precision, and legal professionals who work with greater clarity. Every venture stands on its own. Together, they share a single standard.</p>
+          <div class="meaning"><div class="he" lang="he">&#1488;&#1502;&#1514;</div><p><strong style="color:var(--ivory);font-weight:500">Emet</strong> is the Hebrew word for truth. It is the standard we hold every venture to: honest products, clear terms, and work that holds up.</p></div>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><b>Own</b><span>We hold and operate each venture, so every product has a long-term home and accountable ownership.</span></div>
+          <div class="pillar"><b>Build</b><span>Native, mobile-first applications designed with care for the people who use them every day.</span></div>
+          <div class="pillar"><b>Stay distinct</b><span>Each venture keeps its own brand, voice and community. Nothing is blended or diluted.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="ventures">
+      <div class="shell">
+        <div class="section-intro">
+          <div><span class="eyebrow">The portfolio</span><h2>Our ventures</h2></div>
+          <span class="section-count">04</span>
+        </div>
+        <div class="portfolio-grid">
+        <a class="venture" style="--accent:#8a5fd0" href="https://the-artist-experience.superapp.now" aria-label="Visit The Artist Experience website">
+          <div class="venture-top"><img class="venture-icon" src="img/artist.webp" width="90" height="90" alt="The Artist Experience app icon" loading="lazy"><span class="venture-number">01 / 04</span></div>
+          <div class="venture-content"><div class="venture-category">Music &amp; connection</div><h3>The Artist Experience</h3><p>Direct Connect Club. An artist-first space where musicians own their music and connect directly with the people who love it.</p><span class="venture-cta">Discover the experience &#8599;</span></div>
+        </a>
+        <a class="venture" style="--accent:#c9a227" href="https://pro-tour-cycling-coach.superapp.now" aria-label="Visit Pro Tour AI Cycling Coach website">
+          <div class="venture-top"><img class="venture-icon" src="img/protour.webp" width="90" height="90" alt="Pro Tour AI Cycling Coach app icon" loading="lazy"><span class="venture-number">02 / 04</span></div>
+          <div class="venture-content"><div class="venture-category">Cycling &amp; performance</div><h3>Pro Tour AI Cycling Coach</h3><p>A Directeur Sportif in your pocket. AI coaching built around the language and discipline of the professional peloton.</p><span class="venture-cta">Explore the ride &#8599;</span></div>
+        </a>
+        <a class="venture" style="--accent:#c4a978" href="https://plumb-leveled-and-square.superapp.now" aria-label="Visit Plumb Leveled &amp; Square website">
+          <div class="venture-top"><img class="venture-icon" src="img/pls.webp" width="90" height="90" alt="Plumb Leveled &amp; Square app icon" loading="lazy"><span class="venture-number">03 / 04</span></div>
+          <div class="venture-content"><div class="venture-category">Tools for the trade</div><h3>Plumb Leveled &amp; Square</h3><p>Purpose-built AI tools for masonry contractors, from the bid desk to the field.</p><span class="venture-cta">Explore the toolkit &#8599;</span></div>
+        </a>
+        <article class="venture" style="--accent:#c4a978" aria-label="Legal&#275;ze AI Legal Assistant, website forthcoming">
+          <div class="venture-top"><img class="venture-icon" src="img/legaleze.webp" width="90" height="90" alt="Legal&#275;ze AI Legal Assistant app icon" loading="lazy"><span class="venture-number">04 / 04</span></div>
+          <div class="venture-content"><div class="venture-category">Legal intelligence</div><h3>Legal&#275;ze AI Legal Assistant</h3><p>Case law search, motion filing and appeal assistance. Jurisprudence and contract synthesis, built for a changing legal landscape.</p><span class="venture-cta">Website forthcoming</span></div>
+        </article>
+        </div>
+        <div class="others">
+          <span class="eyebrow">Other businesses</span>
+          <div class="others-list">
+            <a href="slambox.html">SlamboX &#8599;</a>
+            <a href="https://brickoutdoorlivinginc.com">Brick Outdoor Living &#8599;</a>
+          </div>
+          <p class="others-note">Independent businesses of the same owner, each with its own site.</p>
+        </div>
+        <p class="closing-line">Different paths. One uncompromising principle.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>&copy; 2026 Emet Holdings. All rights reserved.</span>
+      <span class="footer-hebrew" lang="he">&#1488;&#1502;&#1514;</span>
+    </div>
+  </footer>
+</body>
+</html>
