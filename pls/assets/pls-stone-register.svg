@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc">
+<title id="title">PLS Software — Stone Register logo</title>
+<desc id="desc">An original engraved masonry device paired with a formal PLS Software wordmark in slate, parchment, and antique brass.</desc>
+<g>
+      <path d="M104 44H336L396 104V336L336 396H104L44 336V104Z" fill="#5E7480" stroke="#C2A66D" stroke-width="5"/>
+      <path d="M112 61H328L379 112V328L328 379H112L61 328V112Z" fill="none" stroke="#E8DCC3" stroke-width="1.7" opacity=".88"/>
+      <path d="M124 77H316L363 124V316L316 363H124L77 316V124Z" fill="none" stroke="#C2A66D" stroke-width="1" opacity=".65"/>
+      <!-- restrained engraved corner hatching -->
+      <g stroke="#E8DCC3" stroke-width="1.4" opacity=".55">
+        <path d="M94 132l25-25M94 151l43-43M94 170l60-60M346 110l25 25M327 94l43 43M308 94l62 62"/>
+        <path d="N94 308l60 60M94 289l43 43M94 270l25 25M346 330l25-25M327 346l43-43M308 346l62-62"/>
+      </g>
+      <!-- staggered, individually cut stone courses -->
+      <g stroke="#C2A66D" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M154 143H286L273 186H167Z" fill="#7F9298"/>
+        <path d="M135 198H213V242H135Z" fill="#E8DCC3"/>
+        <path d="M227 198H305V242H227Z" fill="#7F9298"/>
+        <path d="M154 254H206V298H154Z" fill="#7F9298"/>
+        <path d="M220 254H286V298H220Z" fill="#E8DCC3"/>
+      </g>
+      <!-- fine cut lines suggest engraved stone, not literal tools -->
+      <g fill="none" stroke="#425965" stroke-width="1.2" opacity=".8">
+        <path d="M164 153H276M159 165H281M145 208H203M237 208H295M145 220H203M237 220H295M164 264H196M230 264H276M164 278H196M230 278H276"/>
+      </g>
+      <path d="M207 319l13-6 13 6-13 6Z" fill="#C2A66D"/>
+    </g>
+<g transform="translate(505 0)">
+  <text x="0" y="241" font-family="Bodoni 72, Didot, Baskerville, 'Times New Roman', serif" font-size="160" letter-spacing="-2" fill="#283D45">PLS</text>
+  <path d="M7 277H565" stroke="#C2A66D" stroke-width="2"/>
+  <path d="M7 277l8-4 8 4-8 4Z" fill="#C2A66D"/>
+  <text x="8" y="338" font-family="Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="500" letter-spacing="13" fill="#5E7480">SOFTWARE</text>
+</g>
+</svg>
